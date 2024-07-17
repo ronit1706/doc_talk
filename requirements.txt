@@ -1,0 +1,10 @@
+opencv-python==4.10.0.84
+numpy==1.26.4
+pdf2image==1.17.0
+pytesseract==0.3.10
+langchain==0.2.7
+langchain-community==0.2.7
+
+# ollama installation
+# ollama package needs to be installed separately from the official website
+# Please follow the instructions at https://ollama.com to install the ollama package
