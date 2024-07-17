@@ -27,7 +27,7 @@ This project is designed to create an intelligent chatbot capable of answering q
 - Interactive chat interface for user queries.
 
 
-##Workflow
+## Workflow
 
 Load PDF Documents: PDF documents are loaded from the flattened_pdfs directory.
 	2.	Process PDFs: PDFs are processed to extract and split images using OpenCV.
@@ -39,7 +39,7 @@ Load PDF Documents: PDF documents are loaded from the flattened_pdfs directory.
 	8.	Interactive Chat: Users interact with the chatbot through a console interface.
 
 
-##Technologies used
+## Technologies used
 
 	•	Python
 	•	OpenCV
@@ -50,7 +50,7 @@ Load PDF Documents: PDF documents are loaded from the flattened_pdfs directory.
 	•	Chroma Vector Store
 	•	PlantUML
 
-##Screenshots
+## Screenshots
 
 ![ui](https://github.com/user-attachments/assets/a22bb092-e67b-4a35-a3ce-2c722a7b67ec)
 As seen in the image, the chatbot properly works for given context, but does not answer out of context questions (to avoid incorrect information)
