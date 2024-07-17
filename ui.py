@@ -1,5 +1,4 @@
 import streamlit as st
-import time
 from langchain_community.chat_models import ChatOllama
 from langchain_community.vectorstores import Chroma
 from langchain_community.embeddings import OllamaEmbeddings
@@ -8,7 +7,6 @@ from langchain.prompts import PromptTemplate
 import os
 
 st.title("Policy Wordings Chatbot")
-
 
 def initialize_vector_store(vector):
     ollamaEmbeddings = OllamaEmbeddings(model="llama3")
@@ -19,7 +17,6 @@ def initialize_vector_store(vector):
         embedding_function=ollamaEmbeddings,
     )
     return new_vector_store_connection
-
 
 def get_response(vector_store_connection, question):
     chat_model = ChatOllama(model="llama3", temperature=0.5)
@@ -42,25 +39,21 @@ def get_response(vector_store_connection, question):
     result = chain.invoke(question)
     return result.content
 
-
-# Select PDF file
+# Sidebar for PDF selection
 def select_pdf():
-
-    pdf_dict = {str(i + 2): pdf[:-4] for i, pdf in enumerate(os.listdir("flattened_pdfs"))}
-    pdf_dict[str(1)] = "complete_text"
-
-
-    selected_pdf = st.selectbox("Choose the pdf you want to chat with:", list(pdf_dict.values()))
+    pdf_files = os.listdir("flattened_pdfs")
+    selected_pdf = st.sidebar.selectbox("Choose the PDF you want to chat with:", pdf_files)
     return selected_pdf
-
-
-if "messages" not in st.session_state:
-    st.session_state.messages = []
 
 if "selected_pdf" not in st.session_state:
     st.session_state.selected_pdf = select_pdf()
+else:
+    st.session_state.selected_pdf = st.sidebar.selectbox("Choose the PDF you want to chat with:", os.listdir("flattened_pdfs"), index=os.listdir("flattened_pdfs").index(st.session_state.selected_pdf))
 
-vector_store_connection = initialize_vector_store(st.session_state.selected_pdf)
+vector_store_connection = initialize_vector_store(st.session_state.selected_pdf[:-4])
+
+if "messages" not in st.session_state:
+    st.session_state.messages = []
 
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
