@@ -47,10 +47,8 @@ Load PDF Documents: PDF documents are loaded from the flattened_pdfs directory.
 	•	pdf2image
 	•	LangChain
 	•	Ollama Embeddings
-	•	Chroma Vector Store
-	•	PlantUML
+	•	ChromaDB Vector Store
 
 ## Screenshots
 
-![ui](https://github.com/user-attachments/assets/a22bb092-e67b-4a35-a3ce-2c722a7b67ec)
-As seen in the image, the chatbot properly works for given context, but does not answer out of context questions (to avoid incorrect information)
+![ui · 11 24am · 07-17](https://github.com/user-attachments/assets/75282671-d151-4a1c-b659-9b0637e6756e)
